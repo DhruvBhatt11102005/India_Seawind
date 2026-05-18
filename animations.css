@@ -1,0 +1,315 @@
+/* ============================================================
+   Seawind — Creative Animations Layer
+   ============================================================ */
+
+/* Floating shapes in hero */
+.hero-shapes { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(1px);
+  opacity: 0.5;
+  animation: shapeDrift var(--dur, 12s) ease-in-out infinite;
+}
+.shape--1 { width: 12px; height: 12px; background: var(--accent3); top: 20%; left: 10%; --dur: 14s; }
+.shape--2 { width: 8px; height: 8px; background: var(--accent2); top: 60%; left: 85%; --dur: 11s; animation-delay: -3s; }
+.shape--3 { width: 20px; height: 20px; border: 2px solid rgba(0, 200, 255, 0.4); background: transparent; top: 30%; right: 15%; --dur: 18s; animation-delay: -6s; }
+.shape--4 { width: 6px; height: 6px; background: var(--gold); bottom: 25%; left: 25%; --dur: 9s; animation-delay: -2s; }
+.shape--5 { width: 40px; height: 40px; border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; background: rgba(0, 85, 204, 0.15); top: 70%; right: 30%; --dur: 20s; animation-delay: -8s; }
+@keyframes shapeDrift {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  25% { transform: translate(20px, -30px) rotate(90deg); }
+  50% { transform: translate(-10px, 20px) rotate(180deg); }
+  75% { transform: translate(15px, 10px) rotate(270deg); }
+}
+
+/* Animated grid lines in hero */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 200, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 200, 255, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 20%, transparent 70%);
+  animation: gridPulse 8s ease-in-out infinite;
+}
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+/* Magnetic button wrapper */
+.magnetic-wrap { display: inline-flex; transition: transform 0.2s var(--ease-out-expo); }
+
+/* Rotating glow border on featured cards */
+.glow-border {
+  position: relative;
+  isolation: isolate;
+}
+.glow-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(from var(--glow-angle, 0deg), var(--accent3), var(--accent), transparent 40%, var(--accent2), var(--accent3));
+  z-index: -2;
+  animation: rotateGlow 4s linear infinite;
+  opacity: 0.7;
+}
+.glow-border::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: inherit;
+  z-index: -1;
+}
+@keyframes rotateGlow { to { --glow-angle: 360deg; } }
+@property --glow-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; }
+
+/* Clip-path section reveal */
+.clip-reveal {
+  opacity: 0;
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease-out-expo), clip-path 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+}
+.clip-reveal.visible {
+  opacity: 1;
+  clip-path: inset(0 0 0 0);
+  transform: translateY(0);
+}
+
+/* Character reveal for headings — stays horizontal */
+.split-heading {
+  display: block;
+  line-height: 1.15;
+}
+.section-header .split-heading {
+  display: inline-block;
+  max-width: 100%;
+}
+.split-line {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+}
+.split-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.5em);
+  transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+  transition-delay: calc(var(--i, 0) * 0.02s);
+}
+.split-heading.visible .split-char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Blur-in cards */
+.blur-in {
+  opacity: 0;
+  filter: blur(12px);
+  transform: scale(0.96) translateY(20px);
+  transition: opacity 0.7s var(--ease-out-expo), filter 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+.blur-in.visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: scale(1) translateY(0);
+}
+
+/* Parallax layers */
+[data-parallax] { will-change: transform; }
+
+/* Ripple click */
+.ripple-host { position: relative; overflow: hidden; }
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(0);
+  animation: rippleExpand 0.6s ease-out forwards;
+  pointer-events: none;
+}
+@keyframes rippleExpand {
+  to { transform: scale(4); opacity: 0; }
+}
+
+/* Icon bounce on hover */
+.bounce-hover:hover .card-icon img,
+.bounce-hover:hover .pricing-icon img {
+  animation: iconBounce 0.6s var(--ease-spring);
+}
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-8px) scale(1.05); }
+  70% { transform: translateY(2px); }
+}
+
+/* Award card shine sweep */
+.award-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.8s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+.award-card:hover::after { left: 150%; }
+
+/* Domain feature slide-in */
+.domain-feature {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo);
+}
+.domain-glass-card.visible .domain-feature:nth-child(1) { opacity: 1; transform: translateX(0); transition-delay: 0.1s; }
+.domain-glass-card.visible .domain-feature:nth-child(2) { opacity: 1; transform: translateX(0); transition-delay: 0.2s; }
+.domain-glass-card.visible .domain-feature:nth-child(3) { opacity: 1; transform: translateX(0); transition-delay: 0.3s; }
+
+/* Footer link slide */
+.footer-col a {
+  position: relative;
+  padding-left: 0;
+  transition: color 0.3s, padding-left 0.35s var(--ease-out-expo);
+}
+.footer-col a::before {
+  content: "→";
+  position: absolute;
+  left: -16px;
+  opacity: 0;
+  color: var(--accent3);
+  transition: opacity 0.3s, left 0.35s var(--ease-out-expo);
+}
+.footer-col a:hover { padding-left: 18px; color: var(--accent3); }
+.footer-col a:hover::before { opacity: 1; left: 0; }
+
+/* Social icon pop */
+.social-links a {
+  transition: transform 0.35s var(--ease-spring), background 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+.social-links a:hover {
+  transform: translateY(-4px) scale(1.08);
+  box-shadow: 0 8px 24px rgba(0, 85, 204, 0.4);
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  z-index: 2;
+  animation: fadeScrollHint 2s ease-in-out infinite;
+}
+.scroll-hint-mouse {
+  width: 24px;
+  height: 38px;
+  border: 2px solid rgba(0, 200, 255, 0.4);
+  border-radius: 12px;
+  position: relative;
+}
+.scroll-hint-mouse::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 8px;
+  background: var(--accent3);
+  border-radius: 4px;
+  animation: scrollWheel 1.5s ease-in-out infinite;
+}
+@keyframes scrollWheel {
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(12px); }
+}
+@keyframes fadeScrollHint {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Section title underline draw */
+.section-header h2 {
+  position: relative;
+  display: inline-block;
+}
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 0;
+  height: 3px;
+  background: var(--grad2);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.8s var(--ease-out-expo);
+}
+.section-header.visible h2::after { width: 80px; }
+
+/* Pricing/plan pulse ring */
+.plan-card.featured.glow-border,
+.pricing-card.featured.glow-border {
+  animation: featuredPulse 3s ease-in-out infinite;
+}
+@keyframes featuredPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 200, 255, 0); }
+  50% { box-shadow: 0 0 40px rgba(0, 85, 204, 0.2); }
+}
+
+/* Tech tab indicator slide */
+.tech-tabs { position: relative; }
+.tab-btn { position: relative; z-index: 1; }
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 100px;
+  transition: left 0.4s var(--ease-out-expo), width 0.4s var(--ease-out-expo);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Cursor ring (secondary) */
+.cursor-ring {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(0, 200, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, border-color 0.3s;
+  mix-blend-mode: difference;
+}
+.cursor-ring.hovering {
+  width: 56px;
+  height: 56px;
+  border-color: var(--accent3);
+  background: rgba(0, 200, 255, 0.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shape, .hero-grid, .scroll-hint, .glow-border::before { animation: none !important; }
+  .split-char, .blur-in, .clip-reveal, .domain-feature { opacity: 1 !important; filter: none !important; transform: none !important; clip-path: none !important; }
+  .cursor-ring { display: none; }
+}

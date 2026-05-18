@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seawind Solution — Top Web Design & Development Services in India</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="animations.css" />
+</head>
+
+<body>
+
+  <!-- Gooey liquid filter definition -->
+  <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none;">
+    <defs>
+      <filter id="gooey">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
+        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+        <feBlend in="SourceGraphic" in2="goo" />
+      </filter>
+    </defs>
+  </svg>
+
+  <div class="page-loader" id="pageLoader" aria-hidden="true">
+    <img src="images/loader/loaderimage (1).png" alt="Loading..." class="loader-custom-img" />
+    <span class="loader-text">Seawind</span>
+  </div>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="noise-overlay" aria-hidden="true"></div>
+  <div class="mesh-bg" aria-hidden="true"></div>
+  <!-- ── VIDEO BACKGROUND ── -->
+  <div class="video-bg-wrap" aria-hidden="true">
+    <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="auto">
+      <source src="videos/bg-ocean.mp4" type="video/mp4" />
+      <source src="videos/bg-ocean.webm" type="video/webm" />
+    </video>
+    <!-- Dark cinematic overlay so content stays readable -->
+    <div class="video-bg-overlay"></div>
+  </div>
+  <!-- ── SEAWIND CANVAS BACKGROUND (fallback if no video) ── -->
+  <canvas id="seawind-canvas" aria-hidden="true"></canvas>
+
+  <!-- ── CURSOR GLOW ── -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
+
+  <!-- ── NAV ── -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#" class="logo">
+        <span class="logo-frame logo-frame--nav">
+          <img src="images/logo/trademark-logo-new.png" alt="Seawind Solution" class="logo-img logo-img--nav" />
+        </span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#services">Services</a></li>
+        <li><a href="#tech">Technologies</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#testimonials">Clients</a></li>
+        <li><a href="#contact" class="btn-nav">Get Started</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-shapes" aria-hidden="true">
+        <span class="shape shape--1"></span><span class="shape shape--2"></span>
+        <span class="shape shape--3"></span><span class="shape shape--4"></span><span class="shape shape--5"></span>
+      </div>
+      <canvas id="particleCanvas"></canvas>
+    </div>
+
+    <div class="hero-slider-wrap">
+      <div class="hero-slider" id="heroMainSlider">
+        <!-- Slide 1 -->
+        <div class="hero-slide active">
+          <div class="hero-slide-inner">
+            <div class="hero-slide-left hero-slide-content">
+              <span class="hero-badge">✦ Ahmedabad's #1 Digital Agency</span>
+              <h1 class="hero-title">Now is the Time for your <span class="gradient-text gradient-text--animated">Dream
+                  Website</span></h1>
+              <p class="hero-sub">Where bold design meets seamless functionality</p>
+              <div class="hero-cta">
+                <a href="#contact" class="btn-primary">LET'S TALK <span class="btn-arrow">→</span></a>
+              </div>
+            </div>
+            <div class="hero-slide-right">
+              <div class="hero-img-frame">
+                <img src="images/services/1749034404_Custom-Web-Development.jpg" alt="Dream Website"
+                  class="hero-float-img" style="border-radius: 16px;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 2 -->
+        <div class="hero-slide">
+          <div class="hero-slide-inner">
+            <div class="hero-slide-left hero-slide-content">
+              <h1 class="hero-title">Build <span class="gradient-text gradient-text--animated">Trust Online</span> with
+                a <span class="gradient-text">Powerful Web Presence</span></h1>
+              <p class="hero-sub">Grow your business with a stunning, high-performance website tailored to your needs
+              </p>
+              <div class="hero-cta">
+                <a href="#contact" class="btn-primary">LET'S TALK <span class="btn-arrow">→</span></a>
+              </div>
+            </div>
+            <div class="hero-slide-right">
+              <div class="hero-img-frame">
+                <img src="images/services/1753869348_seo-company-ahmedabad.jpg" alt="Web Presence"
+                  class="hero-float-img" style="border-radius: 16px;" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Slide 3 -->
+        <div class="hero-slide">
+          <div class="hero-slide-inner">
+            <div class="hero-slide-left hero-slide-content">
+              <h1 class="hero-title">Boost Your Brand with Our <span
+                  class="gradient-text gradient-text--animated">Digital Marketing Services!</span></h1>
+              <p class="hero-sub">ARE YOU READY TO TAKE YOUR ONLINE PRESENCE TO THE NEXT LEVEL?</p>
+              <div class="hero-cta">
+                <a href="#contact" class="btn-primary">LET'S TALK <span class="btn-arrow">→</span></a>
+              </div>
+            </div>
+            <div class="hero-slide-right">
+              <div class="hero-img-frame">
+                <img src="images/services/1749633184_Ai-powerd-Digital-Marketing.avif" alt="Digital Marketing"
+                  class="hero-float-img" style="border-radius: 16px;" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-controls">
+        <button class="hero-arrow prev-arrow" id="heroPrev">←</button>
+        <div class="hero-dots" id="heroDots"></div>
+        <button class="hero-arrow next-arrow" id="heroNext">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TRUSTED BY MARQUEE ── -->
+  <div class="trust-marquee">
+    <div class="container">
+      <p class="trust-title">TRUSTED BY GLOBAL LEADERS</p>
+      <div class="trust-track">
+        <div class="trust-logos">
+          <img src="images/trust_by/1723627523_logo-06.jpg" alt="Partner 1" />
+          <img src="images/trust_by/1723627537_logo-07.jpg" alt="Partner 2" />
+          <img src="images/trust_by/1723627551_logo-08.jpg" alt="Partner 3" />
+          <img src="images/trust_by/1723627565_logo-09.jpg" alt="Partner 4" />
+          <img src="images/trust_by/1723627580_logo-10.jpg" alt="Partner 5" />
+          <img src="images/trust_by/1723627603_logo-11.jpg" alt="Partner 6" />
+          <img src="images/trust_by/1723627627_logo-12.jpg" alt="Partner 7" />
+          <img src="images/trust_by/1723627643_logo-13.jpg" alt="Partner 8" />
+          <img src="images/trust_by/1723627656_logo-14.jpg" alt="Partner 9" />
+          <img src="images/trust_by/1733725545_ViralKar_Logo.jpg" alt="ViralKar Logo" />
+          <!-- Duplicates for loop -->
+          <img src="images/trust_by/1723627523_logo-06.jpg" alt="Partner 1" />
+          <img src="images/trust_by/1723627537_logo-07.jpg" alt="Partner 2" />
+          <img src="images/trust_by/1723627551_logo-08.jpg" alt="Partner 3" />
+          <img src="images/trust_by/1723627565_logo-09.jpg" alt="Partner 4" />
+          <img src="images/trust_by/1723627580_logo-10.jpg" alt="Partner 5" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TEXT MARQUEE ── -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span>Web Development</span><span class="dot">✦</span>
+      <span>Mobile Apps</span><span class="dot">✦</span>
+      <span>AI Solutions</span><span class="dot">✦</span>
+      <span>Digital Marketing</span><span class="dot">✦</span>
+      <span>SEO Services</span><span class="dot">✦</span>
+      <span>UI/UX Design</span><span class="dot">✦</span>
+      <span>Cloud Hosting</span><span class="dot">✦</span>
+      <span>Branding</span><span class="dot">✦</span>
+      <span>Web Development</span><span class="dot">✦</span>
+      <span>Mobile Apps</span><span class="dot">✦</span>
+      <span>AI Solutions</span><span class="dot">✦</span>
+      <span>Digital Marketing</span><span class="dot">✦</span>
+      <span>SEO Services</span><span class="dot">✦</span>
+      <span>UI/UX Design</span><span class="dot">✦</span>
+      <span>Cloud Hosting</span><span class="dot">✦</span>
+      <span>Branding</span><span class="dot">✦</span>
+    </div>
+  </div>
+
+  <!-- ── SERVICES ── -->
+  <section class="services section" id="services">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">What We Do</span>
+        <h2>Services Built for <span class="gradient-text">Scale</span></h2>
+        <p>End-to-end digital solutions tailored to your business goals.</p>
+      </div>
+      <div class="services-filter-wrap">
+        <div class="services-filter" id="serviceFilters">
+          <button class="filter-btn active" data-filter="tab-web">Web Services</button>
+          <button class="filter-btn" data-filter="tab-mobile">Mobile Apps</button>
+          <button class="filter-btn" data-filter="tab-marketing">Digital Marketing</button>
+          <button class="filter-btn" data-filter="tab-hosting">Hosting</button>
+          <button class="filter-btn" data-filter="tab-multimedia">Branding</button>
+          <button class="filter-btn" data-filter="tab-staffing">Staffing</button>
+          <button class="filter-btn" data-filter="tab-ai">AI Solutions</button>
+        </div>
+      </div>
+
+      <div class="services-gallery" id="servicesGallery">
+        <!-- Web Services -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-web">
+          <div class="card-image-wrap">
+            <img src="images/services/1749033370_Responsive-Website-Design.jpg" alt="Responsive Website Design"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Responsive Website Design</h3>
+            <p>Mobile-friendly, visually appealing websites that work seamlessly across all devices.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-web">
+          <div class="card-image-wrap">
+            <img src="images/services/1749034404_Custom-Web-Development.jpg" alt="Custom Web Development"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Custom Web Development</h3>
+            <p>Tailored web development solutions built to match your business goals and brand identity.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-web">
+          <div class="card-image-wrap">
+            <img src="images/services/1749465505_Integrated-Payment-Gateway.avif" alt="Integrated Payment Gateway"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Integrated Payment Gateway</h3>
+            <p>Secure, reliable, and seamless payment gateway integrations to power your e-commerce operations.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Mobile Apps -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-mobile" style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749026306_Smart_Mobile_Applications.jpg" alt="Smart Mobile Applications"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Smart Mobile Applications</h3>
+            <p>Feature-rich mobile apps that are easier to develop and offer an outstanding user experience.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Marketing -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-marketing"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749633184_Ai-powerd-Digital-Marketing.avif" alt="AI-Powered Digital Marketing"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>AI-Powered Digital Marketing</h3>
+            <p>Stand out from the crowd and convince your potential customers with smart marketing.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-marketing"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1753869348_seo-company-ahmedabad.jpg" alt="SEO Services Provider"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>SEO Services Provider</h3>
+            <p>Online SEO has transformed how we access information. Make the most of these powerful tools.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Hosting -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749033108_Shared-Web-Hosting.jpg" alt="Shared Web Hosting" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Shared Web Hosting</h3>
+            <p>Reliable, cost-effective hosting for small websites with great performance.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749032626_Reseller-Web-Hosting.jpg" alt="Reseller Web Hosting" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Reseller Web Hosting</h3>
+            <p>Unlock your hosting potential with our reseller plans featuring full administrative control.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749032463_Linux-Managed-VPS-Hosting.jpg" alt="Linux Managed VPS Hosting"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Linux Managed VPS Hosting</h3>
+            <p>High-performance Linux VPS hosting with complete management and top security.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749033468_Windows-Managed-VPS-Hosting.jpg" alt="Windows Managed VPS Hosting"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Windows Managed VPS Hosting</h3>
+            <p>Fully managed Windows VPS hosting with superb control and scalable resources.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749032232_Linux-Dedicated-Server-Hosting1.jpg"
+              alt="Linux Dedicated Server Hosting" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Linux Dedicated Server Hosting</h3>
+            <p>Robust and dedicated Linux server resources tailored for heavy enterprise workloads.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749633603_Windows-Dedicated-Server-Hosting.avif"
+              alt="Windows Dedicated Server Hosting" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Windows Dedicated Server Hosting</h3>
+            <p>Enterprise-grade dedicated Windows servers with maximum speed, uptime, and control.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749449989_Domain-Registration-Services.avif" alt="Domain Registration Services"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Domain Registration Services</h3>
+            <p>Find and register the perfect domain name for your business with easy-to-use search tools.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-hosting"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749452747_SSL-Security-Certificates.avif" alt="SSL Security Certificates"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>SSL Security Certificates</h3>
+            <p>Secure your website and boost customer trust with industry-standard SSL certificates.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Multimedia -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-multimedia"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749452597_Printing-Branding.avif" alt="Printing & Branding" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Printing & Branding</h3>
+            <p>Boost your brand visibility with high-quality printing and custom branding solutions.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-multimedia"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749452529_Multimedia-Presentations.avif" alt="Multimedia Presentations"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Multimedia Presentations</h3>
+            <p>Engaging multimedia slide and video presentations that convey your brand story perfectly.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Staffing -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-staffing"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749465320_Hire-Designer.avif" alt="Hire Designer" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Hire Designer</h3>
+            <p>Get creative, skilled designers to bring your ideas to life with top-notch design solutions.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-staffing"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749465398_Hire-Devloper.avif" alt="Hire Developer" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Hire Developer</h3>
+            <p>Hire expert developers to build high-quality, scalable web and app solutions.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-staffing"
+          style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749633485_Offshore-Staffing-Solutions.avif" alt="Offshore Staffing Solutions"
+              loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>Offshore Staffing Solutions</h3>
+            <p>Scale your workforce seamlessly with our experienced and cost-effective offshore talent.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- AI Solutions -->
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-ai" style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1749633261_Ai-Driven-Services.avif" alt="AI Driven Services" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>AI Driven Services</h3>
+            <p>Transform your business with AI-driven services designed to enhance efficiency and growth.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+        <div class="service-card bounce-hover gallery-item tilt-card" data-category="tab-ai" style="display: none;">
+          <div class="card-image-wrap">
+            <img src="images/services/1736417386_ai-in-marketing.jpg" alt="AI in Marketing" loading="lazy" />
+          </div>
+          <div class="service-card-body">
+            <h3>AI in Marketing</h3>
+            <p>Leverage AI in marketing to boost engagement, optimize campaigns, and drive conversions.</p>
+            <a href="#" class="card-link">Learn more <span>→</span></a>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── DOMAIN ── -->
+  <section class="domain section" id="domain">
+    <div class="container">
+      <div class="domain-glass-card reveal">
+        <div class="domain-left">
+          <span class="section-tag">Domain Services</span>
+          <h2>Why Choose Us?</h2>
+          <p>Seamless domain management with top-notch support and unbeatable prices.</p>
+          <div class="domain-features">
+            <div class="domain-feature">
+              <span class="domain-icon">✔</span>
+              <span>Fast &amp; Secure Registration</span>
+            </div>
+            <div class="domain-feature">
+              <span class="domain-icon">✔</span>
+              <span>24/7 Expert Support</span>
+            </div>
+            <div class="domain-feature">
+              <span class="domain-icon">✔</span>
+              <span>Easy Domain Transfer</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="domain-right">
+          <h3>Your Ultimate <span class="gradient-text">Domain Toolkit</span></h3>
+          <p>Register, Transfer, and Manage with Ease!</p>
+
+          <div class="domain-search-bar">
+            <input type="text" placeholder="Search Domain" class="domain-input" />
+            <select class="domain-select">
+              <option>.com</option>
+              <option>.in</option>
+              <option>.org</option>
+              <option>.net</option>
+            </select>
+            <button class="domain-search-btn">🔍 Search</button>
+          </div>
+
+          <div class="domain-tools-grid">
+            <button class="domain-tool-btn">
+              <span class="tool-icon">🌐</span> Register a Domain
+            </button>
+            <button class="domain-tool-btn">
+              <span class="tool-icon">📚</span> Bulk Domain Registration
+            </button>
+            <button class="domain-tool-btn">
+              <span class="tool-icon">🔄</span> Transfer your domain
+            </button>
+            <button class="domain-tool-btn">
+              <span class="tool-icon">💎</span> Premium domains
+            </button>
+            <button class="domain-tool-btn">
+              <span class="tool-icon">🏷️</span> View Domain Pricing
+            </button>
+            <button class="domain-tool-btn">
+              <span class="tool-icon">🔎</span> Whois lookup
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY CHOOSE US ── -->
+  <section class="why-us section" id="why">
+    <div class="container">
+      <div class="why-inner">
+        <div class="why-left reveal-left">
+          <span class="section-tag">Why Choose Us</span>
+          <h2>Why Choose <span class="gradient-text">Seawind Solution?</span></h2>
+          <p>We are a leading software development company with over a decade of experience and expert developers. We
+            offer custom software development services for global clients at affordable costs.</p>
+          <ul class="why-list">
+            <li><span class="check">✓</span> Expert team of 65+ developers & designers</li>
+            <li><span class="check">✓</span> Agile delivery with full transparency</li>
+            <li><span class="check">✓</span> 24/7 dedicated support</li>
+            <li><span class="check">✓</span> Affordable pricing, no compromise on quality</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Start a Project →</a>
+        </div>
+        <div class="why-right reveal-right">
+          <div class="why-cards">
+            <div class="why-card stat-card">
+              <div class="stat-value"><span class="stat-num" data-target="3500">0</span>+</div>
+              <h4>Clients Globally</h4>
+              <p>Trusted by businesses across the world for digital excellence.</p>
+            </div>
+            <div class="why-card stat-card">
+              <div class="stat-value"><span class="stat-num" data-target="65">0</span>+</div>
+              <h4>Developer Globally</h4>
+              <p>Highly skilled experts dedicated to your success.</p>
+            </div>
+            <div class="why-card stat-card">
+              <div class="stat-value"><span class="stat-num" data-target="99">0</span>%</div>
+              <h4>Satisfied Clients</h4>
+              <p>Our commitment to quality reflects in our client satisfaction rate.</p>
+            </div>
+            <div class="why-card stat-card">
+              <div class="stat-value"><span class="stat-num" data-target="15">0</span>+</div>
+              <h4>Years of Experience</h4>
+              <p>A legacy of delivering innovative solutions since 2012.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TECH STACK ── -->
+  <section class="tech section" id="tech">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Technology</span>
+        <h2>Our <span class="gradient-text">Tech Stack</span></h2>
+        <p>We work with the best tools to build the best products.</p>
+      </div>
+      <div class="tech-tabs reveal">
+        <button class="tab-btn active" data-tab="ai">AI Technologies</button>
+        <button class="tab-btn" data-tab="mobile">Mobile</button>
+        <button class="tab-btn" data-tab="frontend">Front End</button>
+        <button class="tab-btn" data-tab="database">Database</button>
+        <button class="tab-btn" data-tab="backend">Backend</button>
+        <button class="tab-btn" data-tab="cms">CMS</button>
+        <button class="tab-btn" data-tab="devops">Infra & DevOps</button>
+      </div>
+      <div class="tech-panels">
+        <div class="tech-panel active" id="tab-ai">
+          <div class="tech-card"><img src="images/technologies/chat-gpt.png" alt="OpenAI"
+              class="tech-logo" /><span>OpenAI</span></div>
+          <div class="tech-card"><img src="images/technologies/Codex.png" alt="Codex"
+              class="tech-logo tech-logo--invert" /><span>Codex</span></div>
+          <div class="tech-card"><img src="images/technologies/Verterx-ai.png" alt="Vertex AI"
+              class="tech-logo" /><span>Vertex AI</span></div>
+          <div class="tech-card"><img src="images/technologies/cloud-vision.png" alt="Cloud Vision"
+              class="tech-logo" /><span>Cloud Vision</span></div>
+          <div class="tech-card"><img src="images/technologies/openCv.png" alt="OpenCV"
+              class="tech-logo" /><span>OpenCV</span></div>
+          <div class="tech-card"><img src="images/technologies/tensor-flow.png" alt="TensorFlow"
+              class="tech-logo" /><span>TensorFlow</span></div>
+          <div class="tech-card"><img src="images/technologies/IBM-Watson.png" alt="IBM Watson"
+              class="tech-logo" /><span>IBM Watson</span></div>
+          <div class="tech-card"><img src="images/technologies/Cloud-Natural-Language.png" alt="Cloud Natural"
+              class="tech-logo" /><span>Cloud Natural</span></div>
+          <div class="tech-card"><img src="images/technologies/Cognitive-services.png" alt="Cognitive Services"
+              class="tech-logo" /><span>Cognitive Services</span></div>
+          <div class="tech-card"><img src="images/technologies/Bot-Framework.png" alt="Bot Framework"
+              class="tech-logo" /><span>Bot Framework</span></div>
+          <div class="tech-card"><img src="images/technologies/Mistral.png" alt="Mistral"
+              class="tech-logo" /><span>Mistral</span></div>
+          <div class="tech-card"><img src="images/technologies/LLama.png" alt="Meta Llama"
+              class="tech-logo" /><span>Meta Llama</span></div>
+          <div class="tech-card"><img src="images/technologies/Gemini.png" alt="Gemini"
+              class="tech-logo" /><span>Gemini</span></div>
+          <div class="tech-card"><img src="images/technologies/Anthropic.png" alt="Anthropic"
+              class="tech-logo tech-logo--invert" /><span>Anthropic</span></div>
+        </div>
+        <div class="tech-panel" id="tab-mobile">
+          <div class="tech-card"><img src="images/technologies/ios.png" alt="iOS"
+              class="tech-logo tech-logo--invert" /><span>iOS</span></div>
+          <div class="tech-card"><img src="images/technologies/android.png" alt="Android"
+              class="tech-logo" /><span>Android</span></div>
+          <div class="tech-card"><img src="images/technologies/flutter-logo.png" alt="Flutter"
+              class="tech-logo" /><span>Flutter</span></div>
+          <div class="tech-card"><img src="images/technologies/react-native.png" alt="React Native"
+              class="tech-logo" /><span>React Native</span></div>
+          <div class="tech-card"><img src="images/technologies/Swift.png" alt="Swift"
+              class="tech-logo" /><span>Swift</span></div>
+          <div class="tech-card"><img src="images/technologies/kotlin.png" alt="Kotlin"
+              class="tech-logo" /><span>Kotlin</span></div>
+          <div class="tech-card"><img src="images/technologies/Titanium.png" alt="Titanium"
+              class="tech-logo" /><span>Titanium</span></div>
+        </div>
+        <div class="tech-panel" id="tab-frontend">
+          <div class="tech-card"><img src="images/technologies/react-Js.png" alt="React"
+              class="tech-logo" /><span>React</span></div>
+          <div class="tech-card"><img src="images/technologies/Vue.js_Logo.png" alt="Vue.js"
+              class="tech-logo" /><span>Vue.js</span></div>
+          <div class="tech-card"><img src="images/technologies/AngularJS.png" alt="Angular"
+              class="tech-logo" /><span>Angular</span></div>
+          <div class="tech-card"><img src="images/technologies/javascript-logo.png" alt="JavaScript"
+              class="tech-logo" /><span>JavaScript</span></div>
+          <div class="tech-card"><img src="images/technologies/typescript.png" alt="TypeScript"
+              class="tech-logo" /><span>TypeScript</span></div>
+          <div class="tech-card"><img src="images/technologies/html.png" alt="HTML5"
+              class="tech-logo" /><span>HTML5</span></div>
+          <div class="tech-card"><img src="images/technologies/css.png" alt="CSS3" class="tech-logo" /><span>CSS3</span>
+          </div>
+        </div>
+        <div class="tech-panel" id="tab-database">
+          <div class="tech-card"><img src="images/technologies/my-sql.png" alt="MySQL"
+              class="tech-logo" /><span>MySQL</span></div>
+          <div class="tech-card"><img src="images/technologies/PostgreSQL.png" alt="PostgreSQL"
+              class="tech-logo" /><span>PostgreSQL</span></div>
+          <div class="tech-card"><img src="images/technologies/mongodb.png" alt="MongoDB"
+              class="tech-logo" /><span>MongoDB</span></div>
+          <div class="tech-card"><img src="images/technologies/Sqlite-square-icon.png" alt="SQLite"
+              class="tech-logo" /><span>SQLite</span></div>
+          <div class="tech-card"><img src="images/technologies/Oracle.png" alt="Oracle"
+              class="tech-logo" /><span>Oracle</span></div>
+          <div class="tech-card"><img src="images/technologies/redis.png" alt="Redis"
+              class="tech-logo" /><span>Redis</span></div>
+        </div>
+        <div class="tech-panel" id="tab-backend">
+          <div class="tech-card"><img src="images/technologies/Node.js_logo.svg.png" alt="Node.js"
+              class="tech-logo" /><span>Node.js</span></div>
+          <div class="tech-card"><img src="images/technologies/php.png" alt="PHP" class="tech-logo" /><span>PHP</span>
+          </div>
+          <div class="tech-card"><img src="images/technologies/Java.png" alt="Java"
+              class="tech-logo" /><span>Java</span></div>
+          <div class="tech-card"><img src="images/technologies/dot-net.png" alt=".NET"
+              class="tech-logo" /><span>.NET</span></div>
+          <div class="tech-card"><img src="images/technologies/Python.png" alt="Python"
+              class="tech-logo" /><span>Python</span></div>
+          <div class="tech-card"><img src="images/technologies/rubyonrails.png" alt="Ruby on Rails"
+              class="tech-logo" /><span>Ruby on Rails</span></div>
+          <div class="tech-card"><img src="images/technologies/WordPress.png" alt="WordPress"
+              class="tech-logo tech-logo--invert" /><span>WordPress</span></div>
+        </div>
+        <div class="tech-panel" id="tab-cms">
+          <div class="tech-card"><img src="images/technologies/WordPress.png" alt="WordPress"
+              class="tech-logo tech-logo--invert" /><span>WordPress</span></div>
+          <div class="tech-card"><img src="images/technologies/drupal.png" alt="Drupal"
+              class="tech-logo" /><span>Drupal</span></div>
+          <div class="tech-card"><img src="images/technologies/joomla.png" alt="Joomla"
+              class="tech-logo" /><span>Joomla</span></div>
+          <div class="tech-card"><img src="images/technologies/shopify.png" alt="Shopify"
+              class="tech-logo" /><span>Shopify</span></div>
+          <div class="tech-card"><img src="images/technologies/magento.png" alt="Magento"
+              class="tech-logo" /><span>Magento</span></div>
+        </div>
+        <div class="tech-panel" id="tab-devops">
+          <div class="tech-card"><img src="images/technologies/docker.png" alt="Docker"
+              class="tech-logo" /><span>Docker</span></div>
+          <div class="tech-card"><img src="images/technologies/Kubernetes.png" alt="Kubernetes"
+              class="tech-logo" /><span>Kubernetes</span></div>
+          <div class="tech-card"><img src="images/technologies/aws.png" alt="AWS" class="tech-logo" /><span>AWS</span>
+          </div>
+          <div class="tech-card"><img src="images/technologies/azure_Devops.png" alt="Azure"
+              class="tech-logo" /><span>Azure</span></div>
+          <div class="tech-card"><img src="images/technologies/Terraform.png" alt="Terraform"
+              class="tech-logo" /><span>Terraform</span></div>
+          <div class="tech-card"><img src="images/technologies/jenkins.png" alt="Jenkins"
+              class="tech-logo" /><span>Jenkins</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── AWARDS ── -->
+  <section class="awards section" id="awards">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Recognition</span>
+        <h2>Appreciated & <span class="gradient-text">Awarded</span></h2>
+        <p>Our commitment to excellence has earned us prestigious accolades from industry leaders.</p>
+      </div>
+      <div class="awards-grid reveal">
+        <div class="award-card tilt-card">
+          <div class="award-image-wrap">
+            <img src="images/awards/Awards-25.jpg" alt="Award 2025" />
+            <div class="award-year-badge">2025</div>
+          </div>
+          <div class="award-content">
+            <h4>Most Innovative Tech Company</h4>
+            <p>Provider of The Year 2025</p>
+          </div>
+        </div>
+        <div class="award-card tilt-card">
+          <div class="award-image-wrap">
+            <img src="images/awards/Awards-2024.jpg" alt="Award 2024" />
+            <div class="award-year-badge">2024</div>
+          </div>
+          <div class="award-content">
+            <h4>Best Social Media Service</h4>
+            <p>Provider of The Year 2024</p>
+          </div>
+        </div>
+        <div class="award-card tilt-card">
+          <div class="award-image-wrap">
+            <img src="images/awards/Awards-2020.jpg" alt="Award 2020" />
+            <div class="award-year-badge">2020</div>
+          </div>
+          <div class="award-content">
+            <h4>Emerging ICONS of Gujarat</h4>
+            <p>Emerging ICONS of Gujarat 2020</p>
+          </div>
+        </div>
+        <div class="award-card tilt-card">
+          <div class="award-image-wrap">
+            <img src="images/awards/Awards-2019.jpg" alt="Award 2019" />
+            <div class="award-year-badge">2019</div>
+          </div>
+          <div class="award-content">
+            <h4>Gujarat Media Awards</h4>
+            <p>Gujarat Media Awards 2019</p>
+          </div>
+        </div>
+        <div class="award-card tilt-card">
+          <div class="award-image-wrap">
+            <img src="images/awards/Awards-2018.jpg" alt="Award 2018" />
+            <div class="award-year-badge">2018</div>
+          </div>
+          <div class="award-content">
+            <h4>Gujarati Media &amp; Film Awards</h4>
+            <p>Gujarati Media &amp; Film Awards 2018</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── TESTIMONIALS ── -->
+  <!-- ── TESTIMONIALS ── -->
+  <section class="testimonials testimonials--marquee section" id="testimonials">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Testimonials</span>
+        <h2>Client Words: <span class="gradient-text">A Legacy Of Trust</span></h2>
+        <p>Our commitment to excellence extends beyond software development; it encompasses delivering amazing
+          experiences to our valued customers.</p>
+      </div>
+
+      <div class="marquee-testimonials">
+        <div class="marquee-testimonials-track" id="marqueeTrack">
+          <!-- Slide 1 -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The company is a perfect partner for anyone who is looking for a recognized web presence. The expert
+              team of web developers at Seawind skillfully transforms a rough idea into a polished reality."</p>
+            <div class="client-info">
+              <div class="client-avatar">KZ</div>
+              <div><strong>Kart Zone</strong><span>E-commerce Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692558_1588069629_kartzone.png"
+                  alt="Kart Zone Logo" /></div>
+            </div>
+          </div>
+          <!-- Slide 2 -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Seawind Solution is a highly trusted partner and offers quality work to its client. They are
+              cost-effective and timely in all their undertakings. Being its client, I am impressed by the quality
+              standard they maintain in their website development services."</p>
+            <div class="client-info">
+              <div class="client-avatar">FR</div>
+              <div><strong>Ferrum</strong><span>Manufacturing Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692512_1588249329_ferrum.jpg" alt="Ferrum Logo" />
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3 -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Seawind Solution team was a pleasure to work with over the course of our website development and I
+              highly recommend them to anyone who wishes to hire web developers for their projects. Their team is
+              extremely detail-oriented and finds the most effective and efficient way to complete your project, while
+              always keeping you informed on the progress along the way."</p>
+            <div class="client-info">
+              <div class="client-avatar">IID</div>
+              <div><strong>International Institute Of Design</strong><span>Education Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692438_1588069594_iid.png" alt="IID Logo" /></div>
+            </div>
+          </div>
+          <!-- Slide 4 -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"We would like to thank the entire Seawind Solution team for a seamless and efficient experience for the
+              updates to our Salesforce platform. As a manager in a small business, it is critical to work with a
+              provider that understands my needs and can deliver the solutions requested in a timely manner."</p>
+            <div class="client-info">
+              <div class="client-avatar">SCS</div>
+              <div><strong>Solitaire Car Studio</strong><span>Automotive Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692402_1588069580_solitaire.png"
+                  alt="Solitaire Logo" /></div>
+            </div>
+          </div>
+          <!-- Slide 5 -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The team adapted extremely well to the business needs and model for the project. The overall development
+              was of good quality and delivered in a timely fashion. Seawind Solution has a personable team that
+              instills trust in their process and capabilities."</p>
+            <div class="client-info">
+              <div class="client-avatar">TPG</div>
+              <div><strong>The Phone Garage</strong><span>Retail Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692300_1588069564_the-phone.png"
+                  alt="The Phone Garage Logo" /></div>
+            </div>
+          </div>
+          <!-- Slide 6 -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"First of all a Big Thank you to Mr. Vijaybhai Shah for their continuous support and guidance for our
+              project. Special thanks to our teammates Mr. Jeet, Mr. Yogesh, Mr. Ronak for understanding our project and
+              vision from each and every depth. We are glad that we can finally work in a much easier and faster way
+              with the help of your technology."</p>
+            <div class="client-info">
+              <div class="client-avatar">POD</div>
+              <div><strong>POD Team</strong><span>Technology Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692186_1587194808_pod_logo.png"
+                  alt="POD Team Logo" /></div>
+            </div>
+          </div>
+
+          <!-- Duplicate cards for seamless marquee -->
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The company is a perfect partner for anyone who is looking for a recognized web presence. The expert
+              team of web developers at Seawind skillfully transforms a rough idea into a polished reality."</p>
+            <div class="client-info">
+              <div class="client-avatar">KZ</div>
+              <div><strong>Kart Zone</strong><span>E-commerce Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692558_1588069629_kartzone.png"
+                  alt="Kart Zone Logo" /></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Seawind Solution is a highly trusted partner and offers quality work to its client. They are
+              cost-effective and timely in all their undertakings. Being its client, I am impressed by the quality
+              standard they maintain in their website development services."</p>
+            <div class="client-info">
+              <div class="client-avatar">FR</div>
+              <div><strong>Ferrum</strong><span>Manufacturing Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692512_1588249329_ferrum.jpg" alt="Ferrum Logo" />
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"Seawind Solution team was a pleasure to work with over the course of our website development and I
+              highly recommend them to anyone who wishes to hire web developers for their projects. Their team is
+              extremely detail-oriented and finds the most effective and efficient way to complete your project, while
+              always keeping you informed on the progress along the way."</p>
+            <div class="client-info">
+              <div class="client-avatar">IID</div>
+              <div><strong>International Institute Of Design</strong><span>Education Client</span></div>
+              <div class="client-logo"><img src="images/client/1715692438_1588069594_iid.png" alt="IID Logo" /></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- ── PRICING PLANS ── -->
+  <section class="plans section" id="plans">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Pricing</span>
+        <h2>Plans for Every <span class="gradient-text">Business</span></h2>
+        <p>Choose the plan that fits your growth. *GST Applicable As Per Government Norms.</p>
+      </div>
+      <div class="plans-grid reveal">
+        <!-- Individual -->
+        <div class="plan-card tilt-card">
+          <h3>Individual</h3>
+          <p class="plan-sub">Perfect for freelancers, consultants & solo professionals.</p>
+          <div class="plan-price">₹2,999<span>/mo</span></div>
+          <a href="#contact" class="btn-outline">START INDIVIDUAL</a>
+          <ul class="plan-features">
+            <li><span class="check">✓</span> 1 User</li>
+            <li><span class="check">✓</span> All AI features</li>
+            <li><span class="check">✓</span> Unlimited leads</li>
+            <li><span class="check">✓</span> Email via Gmail / SMTP</li>
+            <li><span class="check">✓</span> Lead tracking & AI follow-ups</li>
+          </ul>
+          <div class="plan-not-included">
+            <strong>Not Included:</strong>
+            <p>WhatsApp & SMS credits (charged separately)</p>
+          </div>
+        </div>
+
+        <!-- Corporate -->
+        <div class="plan-card featured tilt-card glow-border">
+          <div class="plan-badge">MOST POPULAR</div>
+          <h3>Corporate</h3>
+          <p class="plan-sub">For teams and growing businesses with central control.</p>
+          <div class="corporate-tiers">
+            <div class="tier-row"><span>1-10 Users</span><strong>₹4,999</strong></div>
+            <div class="tier-row"><span>11-25 Users</span><strong>₹7,999</strong></div>
+            <div class="tier-row"><span>26-50 Users</span><strong>₹14,990</strong></div>
+            <div class="tier-row"><span>50+ Users</span><strong>Contact</strong></div>
+          </div>
+          <a href="#contact" class="btn-primary btn-full">START CORPORATE →</a>
+          <ul class="plan-features">
+            <li><span class="check">✓</span> Team access & Admin role</li>
+            <li><span class="check">✓</span> All AI features</li>
+            <li><span class="check">✓</span> Central dashboard</li>
+            <li><span class="check">✓</span> Unlimited leads</li>
+          </ul>
+        </div>
+
+        <!-- Enterprise -->
+        <div class="plan-card tilt-card">
+          <h3>Enterprise</h3>
+          <p class="plan-sub">For large organizations & partners needing white label solutions.</p>
+          <div class="plan-price">Custom</div>
+          <a href="#contact" class="btn-outline">CONTACT SALES</a>
+          <ul class="plan-features">
+            <li><span class="check">✓</span> Custom branding</li>
+            <li><span class="check">✓</span> Custom AI workflows</li>
+            <li><span class="check">✓</span> Custom integrations</li>
+            <li><span class="check">✓</span> Dedicated support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── RESELLER ── -->
+  <section class="reseller section" id="reseller">
+    <div class="container">
+      <div class="reseller-inner reveal">
+        <div class="reseller-content">
+          <span class="section-tag">Hosting</span>
+          <h2>Premium Reseller Plan</h2>
+          <p>Unlock Your Hosting Potential: Reseller Hosting With Full Control &amp; Premium Support</p>
+          <ul class="reseller-list">
+            <li><span class="check">✓</span> Full Administrative Control</li>
+            <li><span class="check">✓</span> Seamless Web Hosting Account Management</li>
+            <li><span class="check">✓</span> 100% Dedicated Technical Support for Resellers</li>
+            <li><span class="check">✓</span> Create &amp; Customize Your Own Plans</li>
+            <li><span class="check">✓</span> Comprehensive Management of Emails, Databases &amp; Bandwidth</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Get Reseller Plan →</a>
+        </div>
+        <div class="reseller-visual">
+          <div class="reseller-icon"><img src="images/services/1749032626_Reseller-Web-Hosting.jpg" alt="Reseller" />
+          </div>
+          <div class="reseller-stats">
+            <div class="r-stat"><span>99.9%</span><small>Uptime</small></div>
+            <div class="r-stat"><span>24/7</span><small>Support</small></div>
+            <div class="r-stat"><span>100%</span><small>Control</small></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ENGAGEMENT MODELS ── -->
+  <section class="pricing section" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Engagement</span>
+        <h2>World-Class <span class="gradient-text">Models</span></h2>
+        <p>Choose the engagement model that fits your project best.</p>
+      </div>
+      <div class="pricing-grid reveal">
+        <div class="pricing-card">
+          <div class="pricing-icon"><img src="images/Engagement/Fixedn.svg" alt="Fixed Price" /></div>
+          <h3>Fixed Price</h3>
+          <p>Perfect for well-defined projects with a clear scope and timeline.</p>
+          <ul>
+            <li>✓ Pre-defined scope</li>
+            <li>✓ Less financial risk</li>
+            <li>✓ Quick estimations</li>
+            <li>✓ Agile process</li>
+          </ul>
+          <a href="#contact" class="btn-outline">Get Quote</a>
+        </div>
+        <div class="pricing-card featured glow-border">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-icon"><img src="images/Engagement/timen.svg" alt="Time and Material" /></div>
+          <h3>Time & Material</h3>
+          <p>Ideal for evolving requirements with flexible scope and budget.</p>
+          <ul>
+            <li>✓ Cost-optimized</li>
+            <li>✓ Flexible scope</li>
+            <li>✓ Wider coverage</li>
+            <li>✓ Agile process</li>
+          </ul>
+          <a href="#contact" class="btn-primary">Get Started →</a>
+        </div>
+        <div class="pricing-card">
+          <div class="pricing-icon"><img src="images/Engagement/teamn.svg" alt="Dedicated Team" /></div>
+          <h3>Dedicated Team</h3>
+          <p>Best for long-term projects needing full-time expert involvement.</p>
+          <ul>
+            <li>✓ Wider scope</li>
+            <li>✓ Full involvement</li>
+            <li>✓ Work transparency</li>
+            <li>✓ Agile process</li>
+          </ul>
+          <a href="#contact" class="btn-outline">Hire Team</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ── -->
+  <section class="cta-section section" id="contact">
+    <div class="container">
+      <div class="cta-inner reveal">
+        <div class="cta-orb cta-orb-1"></div>
+        <div class="cta-orb cta-orb-2"></div>
+        <span class="section-tag">Let's Build Together</span>
+        <h2>Ready to Start Your <span class="gradient-text">Next Project?</span></h2>
+        <p>Tell us about your idea and we'll get back to you within 24 hours.</p>
+        <form class="cta-form" id="ctaForm">
+          <div class="form-row">
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <input type="text" placeholder="Project Brief" />
+          <button type="submit" class="btn-primary btn-full">Send Message <span class="btn-arrow">→</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHY CHOOSE SEAWIND ── -->
+  <section class="why-choose section" id="why-choose">
+    <div class="container">
+      <div class="why-choose-inner reveal">
+        <div class="why-choose-text">
+          <span class="section-tag">Why Choose Seawind Solution?</span>
+          <h2>Over a Decade of <span class="gradient-text">Digital Excellence</span></h2>
+          <p>We are a leading software development company with over a decade of experience and expert developers. We
+            offer custom software development services for global clients at affordable costs.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo footer-logo">
+            <span class="logo-frame logo-frame--footer">
+              <img src="images/logo/trademark-logo-new.png" alt="Seawind Solution" class="logo-img logo-img--footer" />
+            </span>
+          </a>
+          <p>India's leading digital agency delivering world-class web, mobile, and AI solutions since 2012.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a2.7 2.7 0 0 0-2.7-2.7c-1.2 0-1.8.7-2.1 1.2v-1h-3.3v7.8h3.3v-4.2c0-.2 0-.4.1-.6.2-.4.5-.8 1.1-.8.8 0 1.1.6 1.1 1.5v4.1h3.3M7.3 8.7c1.1 0 1.8-.7 1.8-1.7s-.7-1.7-1.8-1.7-1.8.7-1.8 1.7.7 1.7 1.8 1.7m1.6 9.8V10.7H5.6v7.8h3.3z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Twitter">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M18.2 4H19.8L15.2 9.4L20.6 16.5H17.4L14.9 13.2L12 17.2H10.4L15.3 11.5L10.1 4.7H13.4L15.7 7.7L18.2 4M17.6 15.6H18.5L13.1 8.5H12.2L17.6 15.6Z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6A3.6 3.6 0 0 0 16.4 4H7.6m8.4 3a1 1 0 1 1 0 2 1 1 0 0 1 0-2m-4 1a4 4 0 1 1 0 8 4 4 0 0 1 0-8m0 2a2 2 0 1 0 0 4 2 2 0 0 0 0-4z" />
+              </svg>
+            </a>
+            <a href="#" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                <path
+                  d="M12 2.04c-5.5 0-10 4.49-10 10.02 0 5 3.66 9.15 8.44 9.9v-7h-2.54v-2.9h2.54v-2.21c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Services</h5>
+            <a href="#">Web Development</a>
+            <a href="#">Mobile Apps</a>
+            <a href="#">AI Solutions</a>
+            <a href="#">Digital Marketing</a>
+            <a href="#">SEO Services</a>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <a href="#">About Us</a>
+            <a href="#">Portfolio</a>
+            <a href="#">Awards</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+          </div>
+          <div class="footer-col">
+            <h5>Contact</h5>
+            <a href="mailto:info@seawindsolution.com">info@seawindsolution.com</a>
+            <a href="tel:+918141887285">+91 81418 87285</a>
+            <a href="tel:+918141887287">+91 81418 87287</a>
+            <a href="#">Ahmedabad, Gujarat, India</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Seawind Solution. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="seawind-bg.js"></script>
+  <script src="script.js"></script>
+  <script src="animations.js"></script>
+</body>
+
+</html>
