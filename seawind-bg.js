@@ -31,19 +31,19 @@
     console.info('[SeawindBG] Video not found — using canvas fallback.');
   }
 
-  if (video.readyState >= 3) {
-    // Already buffered enough (e.g. cached)
+  if (video.readyState >= 2) {
+    // Already buffered enough to play
     onVideoReady();
   } else {
-    video.addEventListener('canplaythrough', onVideoReady, { once: true });
-    video.addEventListener('error',          onVideoError, { once: true });
+    video.addEventListener('canplay', onVideoReady, { once: true });
+    video.addEventListener('error',    onVideoError, { once: true });
 
-    // If video takes >6s to start, fall back to canvas
+    // If video takes >15s to start, fall back to canvas
     const fallbackTimer = setTimeout(() => {
       if (!body.classList.contains('video-playing')) onVideoError();
-    }, 6000);
+    }, 15000);
 
-    video.addEventListener('canplaythrough', () => clearTimeout(fallbackTimer), { once: true });
+    video.addEventListener('canplay', () => clearTimeout(fallbackTimer), { once: true });
   }
 
   // Pause video when tab hidden (save resources), resume on return
