@@ -129,7 +129,7 @@ body.loaded { animation: bodyFade 0.6s var(--ease-out-expo); }
   align-items: center;
   justify-content: center;
   gap: 24px;
-  background: var(--bg);
+  background: #03060f;
   transition: opacity 0.5s var(--ease-out-expo), visibility 0.5s;
 }
 .page-loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
