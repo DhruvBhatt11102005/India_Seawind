@@ -34,17 +34,7 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="noise-overlay" aria-hidden="true"></div>
   <div class="mesh-bg" aria-hidden="true"></div>
-  <!-- ── VIDEO BACKGROUND ── -->
-  <div class="video-bg-wrap" aria-hidden="true">
-    <video id="bg-video" class="video-bg" autoplay muted loop playsinline preload="auto">
-      <source src="videos/bg-ocean.mp4" type="video/mp4" />
-      <source src="videos/bg-ocean.webm" type="video/webm" />
-    </video>
-    <!-- Dark cinematic overlay so content stays readable -->
-    <div class="video-bg-overlay"></div>
-  </div>
-  <!-- ── SEAWIND CANVAS BACKGROUND (fallback if no video) ── -->
-  <canvas id="seawind-canvas" aria-hidden="true"></canvas>
+
 
   <!-- ── CURSOR GLOW ── -->
   <div class="cursor-glow" id="cursorGlow"></div>
@@ -1205,7 +1195,6 @@
     </div>
   </footer>
 
-  <script src="seawind-bg.js"></script>
   <script src="script.js"></script>
   <script src="animations.js"></script>
 </body>
