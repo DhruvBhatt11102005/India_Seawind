@@ -33,6 +33,19 @@
     btn.addEventListener("mouseleave", () => { btn.style.transform = ""; });
   });
 
+  // Magnetic links and social icons
+  document.querySelectorAll(".nav-links a:not(.btn-nav), .social-links a").forEach(link => {
+    link.addEventListener("mousemove", e => {
+      const r = link.getBoundingClientRect();
+      const x = (e.clientX - r.left - r.width / 2) * 0.3;
+      const y = (e.clientY - r.top - r.height / 2) * 0.3;
+      link.style.transform = `translate(${x}px, ${y}px)`;
+    });
+    link.addEventListener("mouseleave", () => {
+      link.style.transform = "";
+    });
+  });
+
   // Ripple on click
   document.querySelectorAll(".btn-primary, .btn-nav, .btn-outline").forEach(btn => {
     btn.classList.add("ripple-host");
@@ -49,32 +62,60 @@
     });
   });
 
-  // Split heading reveal (skip if h2 has styled child spans like gradient-text)
-  document.querySelectorAll(".section-header h2").forEach(h2 => {
-    if (h2.querySelector(".split-char, .gradient-text, span, br")) return;
-    h2.classList.add("split-heading");
-    const text = h2.textContent;
-    h2.textContent = "";
-    let i = 0;
-    text.split(" ").forEach((word, wi) => {
-      const line = document.createElement("span");
-      line.className = "split-line";
-      word.split("").forEach(ch => {
-        const span = document.createElement("span");
-        span.className = "split-char";
-        span.textContent = ch;
-        span.style.setProperty("--i", i++);
-        line.appendChild(span);
-      });
-      h2.appendChild(line);
-      if (wi < text.split(" ").length - 1) {
-        const space = document.createElement("span");
-        space.className = "split-char";
-        space.textContent = "\u00a0";
-        space.style.setProperty("--i", i++);
-        h2.appendChild(space);
+  // Split heading reveal (recursive, supports spans, gradient-text, etc.)
+  function splitTextElement(element, state = { index: 0 }) {
+    if (element.classList.contains("gradient-text")) {
+      element.classList.add("split-char");
+      element.style.setProperty("--i", state.index++);
+      element.style.display = "inline-block";
+      return;
+    }
+
+    const nodes = Array.from(element.childNodes);
+    element.innerHTML = "";
+    
+    nodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        const text = node.textContent;
+        const fragment = document.createDocumentFragment();
+        
+        const words = text.split(" ");
+        words.forEach((word, wi) => {
+          if (word.length > 0) {
+            const wordSpan = document.createElement("span");
+            wordSpan.className = "split-line";
+            wordSpan.style.display = "inline-block";
+            
+            word.split("").forEach(ch => {
+              const chSpan = document.createElement("span");
+              chSpan.className = "split-char";
+              chSpan.textContent = ch;
+              chSpan.style.setProperty("--i", state.index++);
+              wordSpan.appendChild(chSpan);
+            });
+            fragment.appendChild(wordSpan);
+          }
+          
+          if (wi < words.length - 1) {
+            const spaceSpan = document.createElement("span");
+            spaceSpan.className = "split-char";
+            spaceSpan.textContent = "\u00a0";
+            spaceSpan.style.setProperty("--i", state.index++);
+            fragment.appendChild(spaceSpan);
+          }
+        });
+        element.appendChild(fragment);
+      } else if (node.nodeType === Node.ELEMENT_NODE) {
+        splitTextElement(node, state);
+        element.appendChild(node);
       }
     });
+  }
+
+  document.querySelectorAll(".section-header h2").forEach(h2 => {
+    if (h2.querySelector(".split-char")) return;
+    h2.classList.add("split-heading");
+    splitTextElement(h2);
   });
 
   const animObs = new IntersectionObserver(entries => {
@@ -129,4 +170,30 @@
     techTabs.querySelectorAll(".tab-btn").forEach(btn => btn.addEventListener("click", () => setTimeout(moveIndicator, 10)));
     window.addEventListener("resize", moveIndicator);
   }
+
+  // Inject spotlight glows for card hovers
+  document.querySelectorAll(".tilt-card, .service-card, .plan-card, .pricing-card, .award-card").forEach(card => {
+    if (card.querySelector(".spotlight-wrap")) return;
+    const wrap = document.createElement("div");
+    wrap.className = "spotlight-wrap";
+    wrap.style.position = "absolute";
+    wrap.style.inset = "0";
+    wrap.style.overflow = "hidden";
+    wrap.style.borderRadius = "inherit";
+    wrap.style.zIndex = "0";
+    wrap.style.pointerEvents = "none";
+    
+    const glow = document.createElement("span");
+    glow.className = "spotlight-glow";
+    wrap.appendChild(glow);
+    card.appendChild(wrap);
+    
+    card.addEventListener("mousemove", e => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      glow.style.left = `${x}px`;
+      glow.style.top = `${y}px`;
+    });
+  });
 })();

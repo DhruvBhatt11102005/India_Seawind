@@ -201,16 +201,24 @@ if (!prefersReducedMotion) {
 }
 
 // 3D tilt on cards
-document.querySelectorAll(".tilt-card").forEach(card => {
+document.querySelectorAll(".tilt-card, .tech-card").forEach(card => {
   if (prefersReducedMotion) return;
   card.addEventListener("mousemove", e => {
     const rect = card.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width - 0.5;
     const y = (e.clientY - rect.top) / rect.height - 0.5;
-    card.style.transform = `perspective(800px) rotateY(${x * 10}deg) rotateX(${-y * 10}deg) translateY(-8px)`;
+    card.style.transform = `perspective(800px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) translateY(-8px)`;
+    
+    // Parallax effect on the logo inside tech-card
+    const logo = card.querySelector('.tech-logo');
+    if (logo) {
+      logo.style.transform = `translateZ(30px) scale(1.1) translateX(${x * 10}px) translateY(${y * 10}px)`;
+    }
   });
   card.addEventListener("mouseleave", () => {
     card.style.transform = "";
+    const logo = card.querySelector('.tech-logo');
+    if (logo) logo.style.transform = "";
   });
 });
 
@@ -231,6 +239,18 @@ tabBtns.forEach(btn => {
     btn.classList.add("active");
     const panel = document.getElementById("tab-" + btn.dataset.tab);
     panel.classList.add("active");
+  });
+});
+
+// Spotlight tracking on plan feature items
+document.querySelectorAll(".plan-features li").forEach(li => {
+  if (prefersReducedMotion) return;
+  li.addEventListener("mousemove", e => {
+    const rect = li.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    li.style.setProperty("--mouse-x", `${x}px`);
+    li.style.setProperty("--mouse-y", `${y}px`);
   });
 });
 
@@ -277,38 +297,69 @@ hamburger.addEventListener("click", () => {
   }
 });
 
-// Form submit
+// CTA Form Orbs Tracking
+const ctaSection = document.querySelector('.cta-section');
+const ctaOrb1 = document.querySelector('.cta-orb-1');
+const ctaOrb2 = document.querySelector('.cta-orb-2');
+
+if (ctaSection && ctaOrb1 && ctaOrb2 && !prefersReducedMotion) {
+  ctaSection.addEventListener('mousemove', e => {
+    const rect = ctaSection.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    ctaOrb1.style.setProperty('--orb-x', `${x * 0.2}px`);
+    ctaOrb1.style.setProperty('--orb-y', `${y * 0.2}px`);
+    
+    ctaOrb2.style.setProperty('--orb-x', `${-x * 0.15}px`);
+    ctaOrb2.style.setProperty('--orb-y', `${-y * 0.15}px`);
+  });
+  
+  ctaSection.addEventListener('mouseleave', () => {
+    ctaOrb1.style.setProperty('--orb-x', `0px`);
+    ctaOrb1.style.setProperty('--orb-y', `0px`);
+    ctaOrb2.style.setProperty('--orb-x', `0px`);
+    ctaOrb2.style.setProperty('--orb-y', `0px`);
+  });
+}
+
+// Why Choose Section Orbs Tracking
+const whySection = document.querySelector('.why-choose-inner');
+const whyOrb1 = document.querySelector('.why-orb-1');
+const whyOrb2 = document.querySelector('.why-orb-2');
+
+if (whySection && whyOrb1 && whyOrb2 && !prefersReducedMotion) {
+  whySection.addEventListener('mousemove', e => {
+    const rect = whySection.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    whyOrb1.style.setProperty('--orb-x', `${x * 0.2}px`);
+    whyOrb1.style.setProperty('--orb-y', `${y * 0.2}px`);
+    
+    whyOrb2.style.setProperty('--orb-x', `${-x * 0.15}px`);
+    whyOrb2.style.setProperty('--orb-y', `${-y * 0.15}px`);
+  });
+  
+  whySection.addEventListener('mouseleave', () => {
+    whyOrb1.style.setProperty('--orb-x', `0px`);
+    whyOrb1.style.setProperty('--orb-y', `0px`);
+    whyOrb2.style.setProperty('--orb-x', `0px`);
+    whyOrb2.style.setProperty('--orb-y', `0px`);
+  });
+}
+
+// Form submit with Text Animation
 document.getElementById("ctaForm").addEventListener("submit", e => {
   e.preventDefault();
-  const btn = e.target.querySelector("button");
-  const textSpan = btn.querySelector("span");
-  const base = btn.querySelector(".btn-base");
+  const btn = document.getElementById("ctaSubmitBtn");
+  if (!btn || btn.classList.contains("is-success")) return;
 
-  if (textSpan) {
-    textSpan.innerHTML = 'Message Sent! ✓';
-  } else {
-    btn.textContent = "Message Sent! ✓";
-  }
-
-  if (base) {
-    base.style.background = "linear-gradient(135deg,#00c8ff,#1a7fff)";
-  } else {
-    btn.style.background = "linear-gradient(135deg,#00c8ff,#1a7fff)";
-  }
-
+  btn.classList.add("is-success");
+  
   setTimeout(() => {
-    if (textSpan) {
-      textSpan.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-    } else {
-      btn.innerHTML = 'Send Message <span class="btn-arrow">→</span>';
-    }
-
-    if (base) {
-      base.style.background = "";
-    } else {
-      btn.style.background = "";
-    }
-  }, 3000);
+    btn.classList.remove("is-success");
+  }, 3500);
 });
 
 // Smooth scroll

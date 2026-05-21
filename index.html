@@ -34,6 +34,11 @@
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
   <div class="noise-overlay" aria-hidden="true"></div>
   <div class="mesh-bg" aria-hidden="true"></div>
+  <div class="site-waves" aria-hidden="true">
+    <div class="site-wave site-wave-1"></div>
+    <div class="site-wave site-wave-2"></div>
+    <div class="site-wave site-wave-3"></div>
+  </div>
 
 
   <!-- ── CURSOR GLOW ── -->
@@ -497,6 +502,11 @@
   <section class="domain section" id="domain">
     <div class="container">
       <div class="domain-glass-card reveal">
+        <div class="domain-waves" aria-hidden="true">
+          <div class="domain-wave domain-wave-1"></div>
+          <div class="domain-wave domain-wave-2"></div>
+          <div class="domain-wave domain-wave-3"></div>
+        </div>
         <div class="domain-left">
           <span class="section-tag">Domain Services</span>
           <h2>Why Choose Us?</h2>
@@ -624,7 +634,7 @@
           <div class="tech-card"><img src="images/technologies/chat-gpt.png" alt="OpenAI"
               class="tech-logo" /><span>OpenAI</span></div>
           <div class="tech-card"><img src="images/technologies/Codex.png" alt="Codex"
-              class="tech-logo tech-logo--invert" /><span>Codex</span></div>
+              class="tech-logo" /><span>Codex</span></div>
           <div class="tech-card"><img src="images/technologies/Verterx-ai.png" alt="Vertex AI"
               class="tech-logo" /><span>Vertex AI</span></div>
           <div class="tech-card"><img src="images/technologies/cloud-vision.png" alt="Cloud Vision"
@@ -648,11 +658,11 @@
           <div class="tech-card"><img src="images/technologies/Gemini.png" alt="Gemini"
               class="tech-logo" /><span>Gemini</span></div>
           <div class="tech-card"><img src="images/technologies/Anthropic.png" alt="Anthropic"
-              class="tech-logo tech-logo--invert" /><span>Anthropic</span></div>
+              class="tech-logo" /><span>Anthropic</span></div>
         </div>
         <div class="tech-panel" id="tab-mobile">
           <div class="tech-card"><img src="images/technologies/ios.png" alt="iOS"
-              class="tech-logo tech-logo--invert" /><span>iOS</span></div>
+              class="tech-logo" /><span>iOS</span></div>
           <div class="tech-card"><img src="images/technologies/android.png" alt="Android"
               class="tech-logo" /><span>Android</span></div>
           <div class="tech-card"><img src="images/technologies/flutter-logo.png" alt="Flutter"
@@ -710,11 +720,11 @@
           <div class="tech-card"><img src="images/technologies/rubyonrails.png" alt="Ruby on Rails"
               class="tech-logo" /><span>Ruby on Rails</span></div>
           <div class="tech-card"><img src="images/technologies/WordPress.png" alt="WordPress"
-              class="tech-logo tech-logo--invert" /><span>WordPress</span></div>
+              class="tech-logo" /><span>WordPress</span></div>
         </div>
         <div class="tech-panel" id="tab-cms">
           <div class="tech-card"><img src="images/technologies/WordPress.png" alt="WordPress"
-              class="tech-logo tech-logo--invert" /><span>WordPress</span></div>
+              class="tech-logo" /><span>WordPress</span></div>
           <div class="tech-card"><img src="images/technologies/drupal.png" alt="Drupal"
               class="tech-logo" /><span>Drupal</span></div>
           <div class="tech-card"><img src="images/technologies/joomla.png" alt="Joomla"
@@ -1024,12 +1034,23 @@
           <a href="#contact" class="btn-primary">Get Reseller Plan →</a>
         </div>
         <div class="reseller-visual">
-          <div class="reseller-icon"><img src="images/services/1749032626_Reseller-Web-Hosting.jpg" alt="Reseller" />
-          </div>
-          <div class="reseller-stats">
-            <div class="r-stat"><span>99.9%</span><small>Uptime</small></div>
-            <div class="r-stat"><span>24/7</span><small>Support</small></div>
-            <div class="r-stat"><span>100%</span><small>Control</small></div>
+          <div class="dashboard-frame tilt-card glow-border">
+            <div class="dashboard-header">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="dashboard-body">
+              <img src="images/services/1749032626_Reseller-Web-Hosting.jpg" alt="Reseller" class="dashboard-img" />
+            </div>
+            
+            <div class="floating-widget widget-1">
+              <span>99.9%</span><small>Uptime</small>
+            </div>
+            <div class="floating-widget widget-2">
+              <span>24/7</span><small>Support</small>
+            </div>
+            <div class="floating-widget widget-3">
+              <span>100%</span><small>Control</small>
+            </div>
           </div>
         </div>
       </div>
@@ -1092,6 +1113,11 @@
       <div class="cta-inner reveal">
         <div class="cta-orb cta-orb-1"></div>
         <div class="cta-orb cta-orb-2"></div>
+        <div class="cta-waves" aria-hidden="true">
+          <div class="cta-wave cta-wave-1"></div>
+          <div class="cta-wave cta-wave-2"></div>
+          <div class="cta-wave cta-wave-3"></div>
+        </div>
         <span class="section-tag">Let's Build Together</span>
         <h2>Ready to Start Your <span class="gradient-text">Next Project?</span></h2>
         <p>Tell us about your idea and we'll get back to you within 24 hours.</p>
@@ -1101,7 +1127,10 @@
             <input type="email" placeholder="Your Email" required />
           </div>
           <input type="text" placeholder="Project Brief" />
-          <button type="submit" class="btn-primary btn-full">Send Message <span class="btn-arrow">→</span></button>
+          <button type="submit" class="btn-primary btn-full cta-submit-btn" id="ctaSubmitBtn">
+            <span class="btn-text default-text">Send Message <span class="btn-arrow">→</span></span>
+            <span class="btn-text success-text">Message Sent!</span>
+          </button>
         </form>
       </div>
     </div>
@@ -1111,9 +1140,16 @@
   <section class="why-choose section" id="why-choose">
     <div class="container">
       <div class="why-choose-inner reveal">
+        <div class="why-orb why-orb-1"></div>
+        <div class="why-orb why-orb-2"></div>
+        <div class="why-waves" aria-hidden="true">
+          <div class="why-wave why-wave-1"></div>
+          <div class="why-wave why-wave-2"></div>
+          <div class="why-wave why-wave-3"></div>
+        </div>
         <div class="why-choose-text">
           <span class="section-tag">Why Choose Seawind Solution?</span>
-          <h2>Over a Decade of <span class="gradient-text">Digital Excellence</span></h2>
+          <h2>Over a Decade of <span class="gradient-text gradient-text--animated">Digital Excellence</span></h2>
           <p>We are a leading software development company with over a decade of experience and expert developers. We
             offer custom software development services for global clients at affordable costs.</p>
         </div>
